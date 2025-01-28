@@ -213,7 +213,8 @@ class TrajectoryDataset(Dataset):
 
         # Compute data variance for noise
         self.data_var = self._compute_data_variance()
-
+    def __len__(self):
+        return self.num_seq  # Already exists in your code
     def _compute_data_variance(self):
         """Compute variance for each position (agent, timestep, x/y) across all sequences."""
         all_past_trajs = []
